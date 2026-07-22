@@ -101,7 +101,7 @@ export function ServiceCards3D({ services }: { services: Service[] }) {
   };
 
   return (
-    <section id="services" className="py-16 sm:py-24 md:py-32 bg-[#eee8da] px-4 sm:px-6 md:px-12 overflow-hidden">
+    <section id="services" className="py-16 sm:py-24 md:py-32 bg-[#eee8da] px-4 sm:px-6 md:px-12">
       <div className="text-center mb-10 sm:mb-14">
         <p className="text-xs tracking-[0.4em] uppercase text-[#2d5a3d] mb-3">What I Offer</p>
         <h2 className="text-4xl sm:text-5xl md:text-6xl text-[#1e3d2f] mb-3" style={{ fontFamily: "'Great Vibes', cursive" }}>Services</h2>
@@ -114,7 +114,7 @@ export function ServiceCards3D({ services }: { services: Service[] }) {
 
       <div
         ref={containerRef}
-        className="relative h-[360px] sm:h-[500px] md:h-[600px] flex items-center justify-center touch-none select-none"
+        className="relative w-full h-[360px] sm:h-[500px] md:h-[600px] flex items-center justify-center touch-none select-none overflow-hidden"
         style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
