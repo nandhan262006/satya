@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 
 export interface Service {
@@ -51,22 +51,9 @@ function ServiceCard({ service, offset, index, onClick }: { service: Service; of
 export function ServiceCards3D({ services }: { services: Service[] }) {
   const [active, setActive] = useState(0);
   const total = services.length;
-  const wheelAcc = useRef(0);
-  const wheelTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const dragStart = useRef<number | null>(null);
-  const isDragging = useRef(false);
-
   const goTo = useCallback((index: number) => setActive(((index % total) + total) % total), [total]);
   const prev = useCallback(() => goTo(active - 1), [active, goTo]);
   const next = useCallback(() => goTo(active + 1), [active, goTo]);
-
-  const handleWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    wheelAcc.current += e.deltaY;
-    if (wheelTimer.current) clearTimeout(wheelTimer.current);
-    wheelTimer.current = setTimeout(() => { wheelAcc.current = 0; }, 200);
-    if (Math.abs(wheelAcc.current) >= 80) { wheelAcc.current > 0 ? next() : prev(); wheelAcc.current = 0; }
-  }, [next, prev]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "ArrowLeft") prev(); if (e.key === "ArrowRight") next(); };
@@ -86,17 +73,13 @@ export function ServiceCards3D({ services }: { services: Service[] }) {
         </div>
       </div>
 
-      <div className="relative h-[420px] sm:h-[500px] md:h-[600px] flex items-center justify-center touch-none" style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
-        onWheel={handleWheel}
-        onPointerDown={e => { dragStart.current = e.clientX; isDragging.current = false; (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); }}
-        onPointerMove={e => { if (dragStart.current !== null && Math.abs(e.clientX - dragStart.current) > 5) isDragging.current = true; }}
-        onPointerUp={e => { if (dragStart.current !== null) { const delta = e.clientX - dragStart.current; if (isDragging.current && Math.abs(delta) >= 60) { delta < 0 ? next() : prev(); } dragStart.current = null; isDragging.current = false; } }}
+      <div className="relative h-[420px] sm:h-[500px] md:h-[600px] flex items-center justify-center" style={{ perspective: "1200px", transformStyle: "preserve-3d" }}
       >
         {services.map((service, i) => {
           let offset = i - active;
           if (offset > Math.floor(total / 2)) offset -= total;
           if (offset < -Math.floor(total / 2)) offset += total;
-          return <ServiceCard key={service.id} service={service} offset={offset} index={i} onClick={() => !isDragging.current && goTo(i)} />;
+          return <ServiceCard key={service.id} service={service} offset={offset} index={i} onClick={() => goTo(i)} />;
         })}
       </div>
 
