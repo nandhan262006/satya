@@ -90,11 +90,11 @@ export default function PortfolioPage() {
 
       {/* ── STICKY FILTERS ── */}
       <div className="sticky top-[65px] md:top-[81px] z-40 bg-[#f5efe3]/95 backdrop-blur border-b border-[rgba(30,61,47,0.15)]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex gap-3 flex-wrap">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-4 flex gap-2 sm:gap-3 overflow-x-auto no-scrollbar">
           {FILTERS.map(f => (
-            <button key={f} onClick={() => setActiveFilter(f)} className={`text-[11px] tracking-widest uppercase px-5 py-2 border transition-all duration-300 ${activeFilter === f ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary hover:text-primary"}`}>
+            <button key={f} onClick={() => setActiveFilter(f)} className={`text-[11px] tracking-widest uppercase px-4 sm:px-5 py-2 border transition-all duration-300 whitespace-nowrap shrink-0 ${activeFilter === f ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary hover:text-primary"}`}>
               {f}
-              <span className="ml-2 opacity-50">
+              <span className="ml-1.5 sm:ml-2 opacity-50">
                 {f === "All" ? ALL_PHOTOS.length : ALL_PHOTOS.filter(p => p.category === f).length}
               </span>
             </button>
@@ -103,14 +103,14 @@ export default function PortfolioPage() {
       </div>
 
       {/* ── GRID ── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filtered.map((item, i) => (
-          <div key={i} className="relative overflow-hidden group bg-card aspect-square cursor-pointer" onClick={() => setLightbox(i)}>
+          <div key={i} className="relative overflow-hidden group bg-card aspect-[3/4] sm:aspect-square cursor-pointer" onClick={() => setLightbox(i)}>
             <Image src={item.src} alt={item.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/55 transition-all duration-500 flex flex-col items-center justify-center">
-              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center px-4">
-                <p className="text-[10px] tracking-widest uppercase text-primary-foreground/70 mb-2">{item.category}</p>
-                <p className="text-sm text-primary-foreground font-light leading-snug">{item.alt}</p>
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center px-2 sm:px-4">
+                <p className="text-[9px] sm:text-[10px] tracking-widest uppercase text-primary-foreground/70 mb-1 sm:mb-2">{item.category}</p>
+                <p className="text-[11px] sm:text-sm text-primary-foreground font-light leading-snug">{item.alt}</p>
               </div>
             </div>
           </div>

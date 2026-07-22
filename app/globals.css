@@ -36,3 +36,6 @@
 }
 .marquee-track { animation: marquee-scroll 30s linear infinite; }
 .marquee-track:hover { animation-play-state: paused; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
