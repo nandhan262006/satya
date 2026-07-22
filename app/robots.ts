@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://sathyaphotography.in/sitemap.xml",
+    sitemap: "https://satya-plum.vercel.app/sitemap.xml",
   };
 }

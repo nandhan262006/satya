@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const BASE_URL = "https://sathyaphotography.in";
+const BASE_URL = "https://satya-plum.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
       "Ongole's finest videography and photography studio — weddings, pre-wedding, engagement, maternity and couple shoots across Ongole, Guntur, Vijayawada and Hyderabad. EST. 2000.",
     images: [
       {
-        url: "/og-image.png",
+        url: `${BASE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "Sathya Photography — Wedding & Videography Studio in Ongole",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: "Sathya Photography | Wedding & Videography Studio in Ongole",
     description:
       "Ongole's finest videography and photography — weddings, pre-wedding, maternity, kids & couple shoots. Call +91 90103 34999.",
-    images: ["/og-image.png"],
+    images: [`${BASE_URL}/og-image.png`],
   },
   alternates: {
     canonical: BASE_URL,
