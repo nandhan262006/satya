@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Sathya Photography",
   },
   description:
-    "Sathya Photography — Ongole's finest photography and videography studio. Specialising in wedding, pre-wedding, engagement, maternity, kids and couple shoots across Ongole, Guntur, Vijayawada and Hyderabad. EST. 2000. Call +91 90103 34999.",
+    "Sathya Photography — Ongole's finest videography and photography studio. Wedding, pre-wedding, engagement, maternity, kids and couple shoots across Ongole, Guntur, Vijayawada and Hyderabad. EST. 2000. Call +91 90103 34999.",
   keywords: [
     "photography studio ongole",
     "best photographer in ongole",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "Sathya Photography",
     title: "Sathya Photography | Best Wedding & Videography Studio in Ongole",
     description:
-      "Ongole's finest photography and videography studio provides the finest wedding, pre-wedding, engagement, maternity and couple photography across all of Ongole, Guntur, Vijayawada and Hyderabad. EST. 2000.",
+      "Ongole's finest videography and photography studio — weddings, pre-wedding, engagement, maternity and couple shoots across Ongole, Guntur, Vijayawada and Hyderabad. EST. 2000.",
     images: [
       {
         url: "/og-image.png",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sathya Photography | Wedding & Videography Studio in Ongole",
     description:
-      "Ongole's finest photography and videography studio — wedding, pre-wedding, maternity, kids & couple shoots. Call +91 90103 34999.",
+      "Ongole's finest videography and photography — weddings, pre-wedding, maternity, kids & couple shoots. Call +91 90103 34999.",
     images: ["/og-image.png"],
   },
   alternates: {

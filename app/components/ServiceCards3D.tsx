@@ -14,7 +14,7 @@ export const serviceList: Service[] = [
   { id: "wedding", title: "Wedding Photography", description: "Full-day documentary coverage from the first ritual to the last dance — every emotion, every unscripted moment, preserved forever.", imageUrl: "/gallery1.png" },
   { id: "prewedding", title: "Pre-Wedding Shoots", description: "Romantic outdoor sessions that tell your love story before the big day — natural light, beautiful locations, and real moments.", imageUrl: "/gallery3.png" },
   { id: "engagement", title: "Engagement Sessions", description: "Celebrate your new chapter with candid, joyful portraits that capture the excitement of saying yes.", imageUrl: "/gallery5.png" },
-  { id: "maternity", title: "Maternity Photography", description: "Glowing, timeless portraits that honour the beauty of expecting — soft light, genuine emotion, lasting memories.", imageUrl: "https://images.unsplash.com/photo-1492725764764-90b379c2b6e7?w=680&h=900&fit=crop&auto=format" },
+  { id: "maternity", title: "Maternity Photography", description: "Glowing, timeless portraits that honour the beauty of expecting — soft light, genuine emotion, lasting memories.", imageUrl: "/image-2.png" },
   { id: "kids", title: "Kids & Baby Shoots", description: "Playful, authentic sessions that freeze the tiny smiles, curious eyes, and fleeting milestones of childhood.", imageUrl: "/gallery4.png" },
   { id: "couple", title: "Couple Shoots", description: "Relaxed sessions for couples at any stage — anniversary, just-for-fun, or a gift to each other that lasts a lifetime.", imageUrl: "/gallery2.png" },
 ];

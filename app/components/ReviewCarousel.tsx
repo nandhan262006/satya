@@ -51,19 +51,6 @@ function GoogleBadge() {
 export function ReviewCarousel({ reviews }: { reviews: Review[] }) {
   return (
     <section id="reviews" className="py-24 md:py-32 bg-[#eee8da]">
-      <style>{`
-        @keyframes marquee-scroll {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .marquee-track {
-          animation: marquee-scroll 30s linear infinite;
-        }
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-
       <div className="text-center mb-12 px-6 md:px-12">
         <div className="flex justify-center mb-6"><GoogleBadge /></div>
         <p className="text-xs tracking-[0.4em] uppercase text-[#2d5a3d] mb-3">Reviews</p>

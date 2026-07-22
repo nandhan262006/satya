@@ -26,24 +26,13 @@
 }
 
 @layer base {
-  * {
-    border-color: var(--border);
-    box-sizing: border-box;
-  }
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-    font-family: 'Jost', sans-serif;
-  }
+  * { border-color: var(--border); box-sizing: border-box; }
+  body { background-color: var(--background); color: var(--foreground); font-family: 'Jost', sans-serif; }
 }
 
 @keyframes marquee-scroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-.marquee-track {
-  animation: marquee-scroll 30s linear infinite;
-}
-.marquee-track:hover {
-  animation-play-state: paused;
-}
+.marquee-track { animation: marquee-scroll 30s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }

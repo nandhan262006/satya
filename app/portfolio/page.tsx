@@ -9,21 +9,23 @@ import { WhatsAppButton } from "@/app/components/WhatsAppButton";
 const NAV_LINKS = ["Home", "About", "Services", "Portfolio", "Reviews", "Contact"];
 
 const ALL_PHOTOS = [
-  { src: "https://images.unsplash.com/photo-1568038479111-87bf80659645?w=600&h=750&fit=crop&auto=format", alt: "Dramatic portrait with light and shadow", category: "Portrait" },
-  { src: "https://images.unsplash.com/photo-1536766768598-e09213fdcf22?w=600&h=750&fit=crop&auto=format", alt: "Woman in headscarf documentary portrait", category: "Documentary" },
-  { src: "https://images.unsplash.com/photo-1475070929565-c985b496cb9f?w=600&h=750&fit=crop&auto=format", alt: "River flowing through forest", category: "Landscape" },
-  { src: "https://images.unsplash.com/photo-1560529621-67dda50eeb8d?w=600&h=750&fit=crop&auto=format", alt: "Sea of clouds scenic view", category: "Landscape" },
-  { src: "https://images.unsplash.com/photo-1674932668403-33398b81c92f?w=600&h=750&fit=crop&auto=format", alt: "Woman with flowing hair editorial", category: "Editorial" },
-  { src: "https://images.unsplash.com/photo-1508185140592-283327020902?w=600&h=750&fit=crop&auto=format", alt: "Cinematic portrait with warm tones", category: "Portrait" },
-  { src: "https://images.unsplash.com/photo-1522849811436-5e4917aefca1?w=600&h=750&fit=crop&auto=format", alt: "Mountain aerial view", category: "Landscape" },
-  { src: "https://images.unsplash.com/photo-1568821862055-66aff7af7ecb?w=600&h=750&fit=crop&auto=format", alt: "Lone road stretching into horizon", category: "Landscape" },
-  { src: "https://images.unsplash.com/photo-1532170579297-281918c8ae72?w=600&h=750&fit=crop&auto=format", alt: "Woman in editorial black top", category: "Editorial" },
-  { src: "https://images.unsplash.com/photo-1508906233311-4334d5c34678?w=600&h=750&fit=crop&auto=format", alt: "Sunlight through green leaves", category: "Landscape" },
-  { src: "https://images.unsplash.com/photo-1568038479111-87bf80659645?w=600&h=900&fit=crop&auto=format&q=60", alt: "Close-up portrait study", category: "Portrait" },
-  { src: "https://images.unsplash.com/photo-1560529621-67dda50eeb8d?w=600&h=900&fit=crop&auto=format&q=60", alt: "Cloud sea from above", category: "Documentary" },
+  { src: "/gallery1.png", alt: "Bride in traditional wedding attire", category: "Wedding" },
+  { src: "/gallery2.png", alt: "Romantic couple portrait at sunset", category: "Couple" },
+  { src: "/gallery3.png", alt: "Pre-wedding candid moment", category: "Pre-Wedding" },
+  { src: "/gallery4.png", alt: "Newborn baby photoshoot", category: "Kids" },
+  { src: "/gallery5.png", alt: "Engagement ring close-up", category: "Engagement" },
+  { src: "/image-1.png", alt: "Wedding ceremony candid shot", category: "Wedding" },
+  { src: "/image-2.png", alt: "Maternity glow photoshoot", category: "Maternity" },
+  { src: "/image-3.png", alt: "Couple laughing candid moment", category: "Couple" },
+  { src: "/image-4.png", alt: "Pre-wedding outdoor session", category: "Pre-Wedding" },
+  { src: "/image-5.png", alt: "Wedding portrait in golden light", category: "Wedding" },
+  { src: "/image-6.png", alt: "Mother and baby tender moment", category: "Maternity" },
+  { src: "/image.png", alt: "Engagement ceremony candid", category: "Engagement" },
+  { src: "/homeimage.png", alt: "Family photoshoot at home", category: "Kids" },
+  { src: "/satya.jpeg", alt: "Sathya photography studio", category: "Wedding" },
 ];
 
-const FILTERS = ["All", "Portrait", "Landscape", "Documentary", "Editorial"];
+const FILTERS = ["All", "Wedding", "Pre-Wedding", "Engagement", "Couple", "Maternity", "Kids"];
 
 export default function PortfolioPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -79,7 +81,7 @@ export default function PortfolioPage() {
           <div className="h-px w-12 bg-primary/20" />
         </div>
         <p className="text-muted-foreground text-sm font-light max-w-md mx-auto">
-          A curated collection of portraits, landscapes, documentary work, and editorial commissions.
+          A curated collection of wedding, pre-wedding, engagement, maternity, kids, and couple photography from across Ongole, Guntur, Vijayawada, and Hyderabad.
         </p>
         <Link href="/" className="inline-flex items-center gap-2 mt-8 text-xs tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors">
           <ArrowLeft size={13} /> Back to Home
@@ -122,7 +124,7 @@ export default function PortfolioPage() {
           <button className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white text-4xl px-4 py-2 transition-colors" onClick={e => { e.stopPropagation(); setLightbox(i => i !== null ? (i - 1 + filtered.length) % filtered.length : null); }}>‹</button>
           <button className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 hover:text-white text-4xl px-4 py-2 transition-colors" onClick={e => { e.stopPropagation(); setLightbox(i => i !== null ? (i + 1) % filtered.length : null); }}>›</button>
           <div className="max-w-4xl max-h-[85vh] px-16 relative" onClick={e => e.stopPropagation()}>
-            <Image src={filtered[lightbox].src.replace("w=600", "w=1200").replace("h=750", "h=900")} alt={filtered[lightbox].alt} width={1200} height={900} className="max-w-full max-h-[80vh] object-contain" />
+            <Image src={filtered[lightbox].src} alt={filtered[lightbox].alt} width={1200} height={900} className="max-w-full max-h-[80vh] object-contain" />
             <div className="text-center mt-4">
               <p className="text-[10px] tracking-widest uppercase text-white/40 mb-1">{filtered[lightbox].category}</p>
               <p className="text-white/70 text-sm font-light">{filtered[lightbox].alt}</p>
