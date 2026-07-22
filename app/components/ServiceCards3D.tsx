@@ -25,19 +25,19 @@ function getCardTransform(offset: number, vw: number): React.CSSProperties {
   const mobile = vw < 640;
   const tx1 = mobile ? 90 : 120;
   const tx2 = mobile ? 160 : 220;
-  if (offset === 0) return { transform: "translateX(0px) translateZ(0px) rotateY(0deg) scale(1)", opacity: 1, zIndex: 10 };
+  if (offset === 0) return { transform: "translateX(calc(-50% + 0px)) translateZ(0px) rotateY(0deg) scale(1)", opacity: 1, zIndex: 10 };
   if (Math.abs(offset) === 1) {
     const dir = Math.sign(offset);
-    return { transform: `translateX(${dir * tx1}px) translateZ(-80px) rotateY(${-dir * 25}deg) scale(0.88)`, opacity: 0.7, zIndex: 5 };
+    return { transform: `translateX(calc(-50% + ${dir * tx1}px)) translateZ(-80px) rotateY(${-dir * 25}deg) scale(0.88)`, opacity: 0.7, zIndex: 5 };
   }
   const dir = Math.sign(offset);
-  return { transform: `translateX(${dir * tx2}px) translateZ(-200px) rotateY(${-dir * 35}deg) scale(0.4)`, opacity: 0.1, zIndex: 1 };
+  return { transform: `translateX(calc(-50% + ${dir * tx2}px)) translateZ(-200px) rotateY(${-dir * 35}deg) scale(0.4)`, opacity: 0.1, zIndex: 1 };
 }
 
 function ServiceCard({ service, offset, index, onClick, vw }: { service: Service; offset: number; index: number; onClick: () => void; vw: number }) {
   const style = getCardTransform(offset, vw);
   return (
-    <div onClick={onClick} className="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] sm:w-[280px] md:w-[340px] cursor-pointer select-none" style={{ ...style, transition: "transform 500ms ease-out, opacity 500ms ease-out", aspectRatio: "3 / 4" }}>
+    <div onClick={onClick} className="absolute top-0 left-1/2 w-[200px] sm:w-[280px] md:w-[340px] cursor-pointer select-none" style={{ ...style, transition: "transform 500ms ease-out, opacity 500ms ease-out", aspectRatio: "3 / 4" }}>
       <div className={`relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-b ${FALLBACK_GRADIENTS[index % FALLBACK_GRADIENTS.length]}`}>
         <Image src={service.imageUrl} alt={service.title} fill className="object-cover" draggable={false} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
